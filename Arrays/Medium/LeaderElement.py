@@ -17,3 +17,13 @@ arr = [10,22,12,3,0,6]
 print(find_leaders(arr))
 
 
+def find_leader_optimal(arr):
+    leader = []
+    maxi = float('-inf')
+    for i in range(len(arr)-1,-1,-1):
+        if arr[i] > maxi:
+            maxi = arr[i]
+            leader.append(maxi)
+    return leader[::-1]
+
+print(find_leader_optimal(arr))
