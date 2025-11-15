@@ -32,26 +32,31 @@ print(longest_subarray_better([1, -1, 5, -2, 3], 3))
 
 # Optimal Approach
 def getLongestSubarray(a , k) -> int:
+    
     n = len(a) # size of the array.
-
-    left, right = 0, 0 # 2 pointers
-    Sum = a[0]
+    preSumMap = {}
+    Sum = 0
     maxLen = 0
-    while right < n:
-        # if sum > k, reduce the subarray from left
-        # until sum becomes less or equal to k:
-        while left <= right and Sum > k:
-            Sum -= a[left]
-            left += 1
+    for i in range(n):
+        # calculate the prefix sum till index i:
+        Sum += a[i]
 
-        # if sum = k, update the maxLen i.e. answer:
+        # if the sum = k, update the maxLen:
         if Sum == k:
-            maxLen = max(maxLen, right - left + 1)
+            maxLen = max(maxLen, i + 1)
 
-        # Move forward the right pointer:
-        right += 1
-        if right < n: Sum += a[right]
+        # calculate the sum of remaining part i.e. x-k:
+        rem = Sum - k
+
+        # Calculate the length and update maxLen:
+        if rem in preSumMap:
+            length = i - preSumMap[rem]
+            maxLen = max(maxLen, length)
+
+        # Finally, update the map checking the conditions:
+        if Sum not in preSumMap:
+            preSumMap[Sum] = i
 
     return maxLen
 
-print(getLongestSubarray([1, -1, 5, -2, 3], 3))
+print("optimal" , getLongestSubarray([1, -1, 5, -2, 3], 3))
