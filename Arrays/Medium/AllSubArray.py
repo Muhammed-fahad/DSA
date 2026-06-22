@@ -1,3 +1,5 @@
+from itertools import combinations
+
 def allsubarray(arr):
     result = []
     n = len(arr)
@@ -32,3 +34,9 @@ def allsubarray_BitMaskSolution(arr):
 
 print(allsubarray_BitMaskSolution([1,2,3]))
 
+def subarray_inbuil(arr):
+    result = []
+    for i in range(len(arr)+1):
+        result.append(list(combinations(arr,i)))
+    return result
+print(subarray_inbuil([1,2,3]))
