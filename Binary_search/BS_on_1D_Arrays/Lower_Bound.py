@@ -3,7 +3,7 @@ def LowerBound(arr,target):
     low,high = 0,len(arr)-1
     while low <= high:
         mid = (low+high)//2
-        if(arr[mid] >= target):
+        if( target <= arr[mid] ):
             ans = mid 
             high = mid-1
         else:
