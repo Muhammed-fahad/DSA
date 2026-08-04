@@ -1,4 +1,4 @@
-class ListNode:
+class LinkedList:
   def __init__(self, val=0, next=None):
       self.val = val
       self.next = next
@@ -16,7 +16,7 @@ def intersection(headA , headB):
   
   return point1.val
 
-shared = ListNode(2, ListNode(4))
-headA = ListNode(1, ListNode(9, ListNode(1, shared)))
-headB = ListNode(3, shared)
+shared = LinkedList(2, LinkedList(4))
+headA = LinkedList(1, LinkedList(9, LinkedList(1, shared)))
+headB = LinkedList(3, shared)
 print(intersection(headA,headB))
