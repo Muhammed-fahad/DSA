@@ -3,7 +3,7 @@ class LinkedList:
     self.val = val
     self.next = next
 
-def dupirem(node):
+def RemoveDuplicate(node):
   current = node
   while current.next:
     if current.val == current.next.val:
@@ -20,5 +20,5 @@ def printll(node):
   print("None")
 
 node = LinkedList(1 , LinkedList(2 , LinkedList(2 , LinkedList(2 , LinkedList(3 , LinkedList(4 , LinkedList(4)))))))
-sorted = dupirem(node)
+sorted = RemoveDuplicate(node)
 printll(sorted)
