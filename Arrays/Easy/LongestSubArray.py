@@ -12,7 +12,7 @@ def longest_subarray_brute_force(arr, target_sum):
                 max_length = max(max_length, j - i + 1)
     return max_length
 
-print(longest_subarray_brute_force([1, -1, 5, -2, 3], 3))
+#print(longest_subarray_brute_force([1, -1, 5, -2, 3], 3))
 
 # Better Approach  
 def longest_subarray_better(arr, target_sum):
@@ -28,7 +28,7 @@ def longest_subarray_better(arr, target_sum):
                 max_length = max(max_length, i - j)
     return max_length
 
-print(longest_subarray_better([1, -1, 5, -2, 3], 3))
+#print(longest_subarray_better([1, -1, 5, -2, 3], 3))
 
 # Optimal Approach
 def getLongestSubarray(a , k) -> int:
@@ -59,4 +59,4 @@ def getLongestSubarray(a , k) -> int:
 
     return maxLen
 
-print("optimal" , getLongestSubarray([1, -1, 5, -2, 3], 3))
+print("optimal" , getLongestSubarray([3,1, -1, 5, -2, 3], 3))
